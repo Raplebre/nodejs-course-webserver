@@ -8,6 +8,9 @@ console.log(__dirname)
 console.log(path.join(__dirname, '../public'))
 
 const app = express()
+const port = process.env.PORT || 3000
+// port = port dado pelo processo ou 3000 se não existir
+
 const publicDirPath = path.join(__dirname, '../public')
 const hbs = require('hbs')
 const viewsPath = path.join(__dirname, '../templates/views')
@@ -114,7 +117,8 @@ app.get('*', (req, res) => {
     app.com/help ( app.get('help', ...) )
     app.com/about ( app.get('about', ...) ) */ 
 
-// port 3000, comum para development
-app.listen(3000, () =>{
-    console.log('Servidor ligado na porta 3000')
+// port 3000, comum para development, para localhost
+// ou port definido pelo processo, se houver
+app.listen(port, () =>{
+    console.log('Servidor ligado na porta ' + port)
 })
