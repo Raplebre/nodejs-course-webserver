@@ -24,23 +24,23 @@ app.use(express.static(publicDirPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather App',
-        name: 'Ruben'
+        title: 'Serviço de Meteorologia',
+        name: 'Ruben Lebre'
     })
 })
 
-app.get('/about', (req, res) => {
+app.get('/sobre', (req, res) => {
     res.render('about',{
-        title: 'About me',
-        name: 'Ruben'
+        title: 'Sobre o website',
+        name: 'Ruben Lebre'
     })
 })
 
-app.get('/help', (req, res) => {
+app.get('/ajuda', (req, res) => {
     res.render('help',{
-        title: 'Help',
-        name: 'Ruben',
-        message: 'Help message'
+        title: 'Ajuda',
+        name: 'Ruben Lebre',
+        message: 'Mensagem de ajuda'
     })
 })
 
@@ -51,12 +51,12 @@ app.get('/help', (req, res) => {
     res.send('<h1>Weather</h1>')
 }) Desnecessário pois já tenho ficheiro index */
 
-app.get('/weather', (req, res) =>{
+app.get('/meteorologia', (req, res) =>{
 
     if (!req.query.address)
     {
         return res.send({
-            error: 'Address not provided'
+            error: 'Localização não fornecida'
         })
     }
     geocode(req.query.address, (error, {longitude, latitude, local} = {}) => {
@@ -81,11 +81,11 @@ app.get('/weather', (req, res) =>{
     
 })
 
-app.get('/products', (req, res) => {
+/* app.get('/products', (req, res) => {
 
     if (!req.query.search){
         return res.send({
-            error: 'You must provide a search term'
+            error: 'Insira um termo de pesquisa'
         })
     }
     // também posso utilizar else aqui
@@ -94,13 +94,13 @@ app.get('/products', (req, res) => {
     res.send({
         products: []
     })
-})
+}) */
 
-app.get('/help/*', (req, res) => {
+app.get('/ajuda/*', (req, res) => {
     res.render('404', {
         title: '404',
-        message: 'Help article not found',
-        name: 'Ruben'
+        message: 'Artigo de ajuda não encontrado',
+        name: 'Ruben Lebre'
     })
 })
 
@@ -108,8 +108,8 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
-        message: 'Page not found',
-        name: 'Ruben'
+        message: 'Página não encontrada',
+        name: 'Ruben Lebre'
     })
 })
 

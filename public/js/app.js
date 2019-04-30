@@ -19,8 +19,8 @@ weatherForm.addEventListener('submit', (e) => {
 
     const location = search.value
 
-    msgOne.textContent = 'Loading...'
-    fetch('/weather?address='+ location).then((response) => {
+    msgOne.textContent = 'A carregar...'
+    fetch('/meteorologia?address='+ location).then((response) => {
     response.json().then((data) => {
         if (data.error){
             msgOne.textContent = data.error
