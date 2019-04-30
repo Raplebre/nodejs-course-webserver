@@ -14,7 +14,7 @@ const forecast = (longitude, latitude, callback) =>{
         }
         else
         {
-            callback (undefined, body.daily.data[0].summary + ' Estão ' + body.currently.temperature + ' graus. Existe uma probabilidade de ' + body.currently.precipProbability + '% de chuva.\nTemeratura máxima: ' + body.daily.data.temperatureHigh +' graus Celsius\nTemeratura máxima: ' + body.daily.data.temperatureLow +' graus Celsius')
+            callback (undefined, body.daily.data[0].summary + ' Estão ' + body.currently.temperature + ' graus. Existe uma probabilidade de ' + body.currently.precipProbability + '% de chuva. Temperatura máxima: ' + body.daily.data[0].temperatureHigh +' graus Celsius. Temperatura mínima: ' + body.daily.data[0].temperatureLow +' graus Celsius.')
         }
     })
 }
